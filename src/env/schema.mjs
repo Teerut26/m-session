@@ -20,6 +20,8 @@ export const serverSchema = z.object({
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  FIREBASE_ADMIN: z.string(),
+  FIREBASE_DATABASE_URL: z.string(),
 });
 
 /**
@@ -33,6 +35,8 @@ export const serverEnv = {
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+  FIREBASE_ADMIN: process.env.FIREBASE_ADMIN,
+  FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
 };
 
 /**
@@ -41,7 +45,7 @@ export const serverEnv = {
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 export const clientSchema = z.object({
-  // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_FIREBASE_CLIENT: z.string(),
 });
 
 /**
@@ -52,4 +56,5 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  NEXT_PUBLIC_FIREBASE_CLIENT: process.env.NEXT_PUBLIC_FIREBASE_CLIENT,
 };
