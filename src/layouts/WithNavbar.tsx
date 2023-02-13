@@ -10,7 +10,7 @@ const WithNavbar: NextPage<Props> = ({ children }) => {
   return (
     <div className="flex h-screen flex-col">
       <Navbar />
-      {children}
+      <div className="flex-grow h-[80%]">{children}</div>
       <Player />
     </div>
   );

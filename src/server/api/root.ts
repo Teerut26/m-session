@@ -1,3 +1,4 @@
+import { musicRouter } from "./routers/music";
 import { roomRouter } from "./routers/room";
 import { createTRPCRouter } from "./trpc";
 
@@ -8,6 +9,7 @@ import { createTRPCRouter } from "./trpc";
  */
 export const appRouter = createTRPCRouter({
   room: roomRouter,
+  music: musicRouter,
 });
 
 // export type definition of API

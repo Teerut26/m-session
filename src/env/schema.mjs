@@ -16,12 +16,15 @@ export const serverSchema = z.object({
     // Since NextAuth.js automatically uses the VERCEL_URL if present.
     (str) => process.env.VERCEL_URL ?? str,
     // VERCEL_URL doesn't include `https` so it cant be validated as a URL
-    process.env.VERCEL ? z.string() : z.string().url(),
+    process.env.VERCEL ? z.string() : z.string().url()
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
   FIREBASE_ADMIN: z.string(),
   FIREBASE_DATABASE_URL: z.string(),
+  BCRYPT_SALT_ROUNDS: z.string(),
+  YOUTUBE_ALTERNATIVE_BASE_URL: z.string(),
+  GOOGLE_KEY: z.string(),
 });
 
 /**
@@ -37,6 +40,9 @@ export const serverEnv = {
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   FIREBASE_ADMIN: process.env.FIREBASE_ADMIN,
   FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
+  BCRYPT_SALT_ROUNDS: process.env.BCRYPT_SALT_ROUNDS,
+  YOUTUBE_ALTERNATIVE_BASE_URL: process.env.YOUTUBE_ALTERNATIVE_BASE_URL,
+    GOOGLE_KEY: process.env.GOOGLE_KEY,
 };
 
 /**
@@ -45,7 +51,7 @@ export const serverEnv = {
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 export const clientSchema = z.object({
-    NEXT_PUBLIC_FIREBASE_CLIENT: z.string(),
+  NEXT_PUBLIC_FIREBASE_CLIENT: z.string(),
 });
 
 /**

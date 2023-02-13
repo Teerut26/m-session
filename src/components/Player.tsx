@@ -54,7 +54,7 @@ const Player: NextPage<Props> = () => {
             <h3 className="text-lg font-bold mt-2">Next Song</h3>
             <div className="mt-3 flex flex-col">
               {[...new Array(10)].map((_, i) => (
-                <QueueMusic isDelete={true} />
+                <QueueMusic key={i} isDelete={true} />
               ))}
             </div>
           </div>

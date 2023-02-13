@@ -1,6 +1,6 @@
 import { api } from "@/utils/api";
 import { NextPage } from "next";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface Props {}
 
@@ -10,7 +10,7 @@ const CreateRoom: NextPage<Props> = () => {
   const name = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
-  const createRoom = (e: React.FormEvent) => {
+  const createRoom = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.current || !password.current) {
       return;
@@ -20,6 +20,16 @@ const CreateRoom: NextPage<Props> = () => {
       password: password.current.value,
     });
   };
+
+  useEffect(() => {
+    if (room.isSuccess) {
+      if (!name.current || !password.current) {
+        return;
+      }
+      name.current.value = "";
+      password.current.value = "";
+    }
+  }, [room]);
 
   return (
     <div className="flex flex-1 flex-col rounded-xl bg-base-200 p-3">
