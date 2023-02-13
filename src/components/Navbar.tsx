@@ -5,6 +5,7 @@ interface Props {}
 
 const Navbar: NextPage<Props> = () => {
   const { data: session } = useSession();
+  
   return (
     <>
       <div className="navbar bg-base-200">
@@ -15,7 +16,7 @@ const Navbar: NextPage<Props> = () => {
           <div className="dropdown-end dropdown">
             <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
               <div className="w-10 rounded-full">
-                <img src={session?.user.image!} />
+                <img src={session?.user.image_url} />
               </div>
             </label>
             <ul

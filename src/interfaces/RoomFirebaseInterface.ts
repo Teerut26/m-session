@@ -1,16 +1,14 @@
+import { MusicVideoOptional } from "node-youtube-music";
+
 export interface RoomFirebaseInterface {
   name: string;
   owner: string;
   password: string;
   users: User[];
-  musicQueue: Music[];
-  currentMusic: Music | null;
+  musicQueue: MusicVideoOptional[];
+  currentMusic: MusicVideoOptional | null;
   id: string;
-}
-
-export interface Music {
-  id: string;
-  title: string;
+  status: "playing" | "paused" | "stopped";
 }
 
 export interface User {

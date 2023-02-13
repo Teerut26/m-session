@@ -4,6 +4,7 @@ import WithNavbar from "@/layouts/WithNavbar";
 import { type NextPage } from "next";
 
 const Home: NextPage = () => {
+    
   return (
     <WithNavbar>
       <div className="flex h-full flex-col overflow-y-auto p-3">
